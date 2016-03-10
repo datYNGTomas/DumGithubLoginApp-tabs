@@ -18,9 +18,6 @@ import edu.lclark.githubfragmentapplication.R;
 import edu.lclark.githubfragmentapplication.activities.MainActivity;
 import edu.lclark.githubfragmentapplication.models.GithubUser;
 
-/**
- * Created by ntille on 2/25/16.
- */
 public class UserFragment extends Fragment {
 
     public static final String ARG_USER = "UserFragment.User";
@@ -70,5 +67,6 @@ public class UserFragment extends Fragment {
     @OnClick(R.id.fragment_user_user_button)
     public void onFollowerButtonClick() {
         mUserListener.onUserFollowerButtonClicked(mUser);
+
     }
 }

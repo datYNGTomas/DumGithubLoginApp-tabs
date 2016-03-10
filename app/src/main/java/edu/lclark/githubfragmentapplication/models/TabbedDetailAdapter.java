@@ -1,33 +1,35 @@
 package edu.lclark.githubfragmentapplication.models;
 
-import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import java.util.ArrayList;
+
+import edu.lclark.githubfragmentapplication.fragments.TabbedDetailFragment;
+
 public class TabbedDetailAdapter extends FragmentStatePagerAdapter {
 
-    private final Context mContext;
+    private ArrayList<GithubUser> mUsers;
 
-    public TabbedDetailAdapter(Context mContext, FragmentManager fm) {
+    public TabbedDetailAdapter(ArrayList<GithubUser> users, FragmentManager fm) {
         super(fm);
-        this.mContext = mContext;
+        mUsers = users;
     }
 
     @Override
     public Fragment getItem(int position) {
 
-        /*while(*//*some how make this work*//*){
-
-            *//* Here we make an array of gitHub users to call with position*//*
-
-        }*/
-
-        return null;
+        return TabbedDetailFragment.newInstance(mUsers, position);
     }
 
     @Override
     public int getCount() {
-        return 0;
+        return mUsers.size();
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return super.getPageTitle(position);
     }
 }
