@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 
 import java.util.ArrayList;
 
-import edu.lclark.githubfragmentapplication.fragments.TabbedDetailFragment;
+import edu.lclark.githubfragmentapplication.fragments.UserFragment;
 
 public class TabbedDetailAdapter extends FragmentStatePagerAdapter {
 
@@ -20,8 +20,9 @@ public class TabbedDetailAdapter extends FragmentStatePagerAdapter {
     @Override
     public Fragment getItem(int position) {
 
-        return TabbedDetailFragment.newInstance(mUsers, position);
+        return UserFragment.newInstance(mUsers.get(position));
     }
+
 
     @Override
     public int getCount() {

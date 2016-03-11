@@ -76,6 +76,15 @@ public class MainActivity extends AppCompatActivity implements MainActivityFragm
     }
 
     @Override
+    public void onTabButtonClick(GithubUser user){
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.tabbed_detail_viewPager, UserFragment.newInstance(user));
+        transaction.addToBackStack(null);
+        transaction.commit();
+
+    }
+
+    @Override
     public void onLoginResult(GithubUser user) {
         if (user == null) {
             Toast toast = Toast.makeText(this, R.string.user_not_found, Toast.LENGTH_SHORT);

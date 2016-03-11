@@ -32,7 +32,10 @@ public class UserFragment extends Fragment {
 
     public interface UserListener {
         void onUserFollowerButtonClicked(GithubUser user);
+
+        void onTabButtonClick(GithubUser user);
     }
+
 
     public static UserFragment newInstance(GithubUser user) {
         UserFragment fragment = new UserFragment();
@@ -62,11 +65,14 @@ public class UserFragment extends Fragment {
         return rootView;
     }
 
-
-
     @OnClick(R.id.fragment_user_user_button)
     public void onFollowerButtonClick() {
         mUserListener.onUserFollowerButtonClicked(mUser);
 
+    }
+
+    @OnClick(R.id.fragment_user_tab_button)
+    public void onTabButtonClick() {
+        mUserListener.onTabButtonClick(mUser);
     }
 }
