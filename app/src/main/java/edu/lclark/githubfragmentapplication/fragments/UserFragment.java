@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,7 +16,6 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import edu.lclark.githubfragmentapplication.R;
-import edu.lclark.githubfragmentapplication.activities.MainActivity;
 import edu.lclark.githubfragmentapplication.models.GithubUser;
 
 public class UserFragment extends Fragment {
@@ -28,6 +28,8 @@ public class UserFragment extends Fragment {
     ImageView mImageView;
     @Bind(R.id.fragment_user_name_textview)
     TextView mNameTextView;
+    @Bind(R.id.fragment_user_user_button)
+    Button mFollowerButton;
 
 
     public interface UserListener {
@@ -60,7 +62,7 @@ public class UserFragment extends Fragment {
 
         mNameTextView.setText(mUser.getLogin());
 
-        mUserListener = (MainActivity) getActivity();
+        mUserListener = (UserListener) getActivity();
 
         return rootView;
     }
@@ -74,5 +76,6 @@ public class UserFragment extends Fragment {
     @OnClick(R.id.fragment_user_tab_button)
     public void onTabButtonClick() {
         mUserListener.onTabButtonClick(mUser);
+        mFollowerButton.setVisibility(View.GONE);
     }
 }

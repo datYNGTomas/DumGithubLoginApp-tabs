@@ -1,5 +1,6 @@
 package edu.lclark.githubfragmentapplication.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -77,11 +78,9 @@ public class MainActivity extends AppCompatActivity implements MainActivityFragm
 
     @Override
     public void onTabButtonClick(GithubUser user) {
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.activity_main_framelayout, UserFragment.newInstance(user));
-        transaction.addToBackStack(null);
-        transaction.commit();
-
+        Intent intent = new Intent(MainActivity.this, TabbedDetailActivity.class);
+        intent.putExtra(UserFragment.ARG_USER, user);
+        startActivity(intent);
     }
 
     @Override

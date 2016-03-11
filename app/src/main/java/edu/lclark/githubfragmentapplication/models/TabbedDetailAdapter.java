@@ -25,11 +25,16 @@ public class TabbedDetailAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return mUsers.size();
+        return mUsers == null ? 0 : mUsers.size();
+    }
+
+    public void setUsers(ArrayList<GithubUser> followers) {
+        mUsers = followers;
+        notifyDataSetChanged();
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return super.getPageTitle(position);
+        return mUsers.get(position).getLogin();
     }
 }

@@ -86,7 +86,6 @@ public class NetworkAsyncTask extends AsyncTask<String, Integer, ArrayList<Githu
     @Override
     protected void onPostExecute(ArrayList<GithubUser> githubUsers) {
         super.onPostExecute(githubUsers);
-
         mListener.onGithubFollowersRetrieved(githubUsers);
     }
 }
