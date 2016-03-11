@@ -76,9 +76,9 @@ public class MainActivity extends AppCompatActivity implements MainActivityFragm
     }
 
     @Override
-    public void onTabButtonClick(GithubUser user){
+    public void onTabButtonClick(GithubUser user) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.tabbed_detail_viewPager, UserFragment.newInstance(user));
+        transaction.replace(R.id.activity_main_framelayout, UserFragment.newInstance(user));
         transaction.addToBackStack(null);
         transaction.commit();
 

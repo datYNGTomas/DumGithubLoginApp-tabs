@@ -65,6 +65,5 @@ public class TabbedDetailActivity extends AppCompatActivity implements NetworkAs
     @Override
     public void onGithubFollowersRetrieved(@Nullable ArrayList<GithubUser> followers) {
         mFollowers = followers;
-
     }
 }

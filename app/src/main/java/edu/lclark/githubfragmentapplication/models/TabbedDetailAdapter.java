@@ -19,7 +19,6 @@ public class TabbedDetailAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-
         return UserFragment.newInstance(mUsers.get(position));
     }
 
